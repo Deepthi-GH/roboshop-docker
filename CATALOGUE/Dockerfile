@@ -1,5 +1,6 @@
 FROM node:20
-WORKDIR /opt/server     # it creates this directory and automatically moves to that path. no need to do cd.
+ # it creates this directory and automatically moves to that path. no need to do cd.
+WORKDIR /opt/server    
 COPY package.json .
 COPY *.js .
 RUN npm install
