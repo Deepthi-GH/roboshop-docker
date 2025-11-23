@@ -3,8 +3,8 @@ EXPOSE 8080
 WORKDIR /opt/server
 COPY pom.xml .
 COPY src .
-RUN mvn clean package
-RUN mv target/shipping-1.0.jar shipping.jar
+# RUN mvn clean package
+# RUN mv target/shipping-1.0.jar shipping.jar
 ENV CART_ENDPOINT=CART:8080 \
     DB_HOST=mysql
 # CMD ["java","-jar","shipping.jar"]    
