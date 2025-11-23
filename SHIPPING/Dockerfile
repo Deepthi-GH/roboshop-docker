@@ -7,4 +7,5 @@ RUN mvn clean package
 RUN mv target/shipping-1.0.jar shipping.jar
 ENV CART_ENDPOINT=CART:8080 \
     DB_HOST=mysql
-CMD ["java","-jar","shipping.jar"]    
+# CMD ["java","-jar","shipping.jar"]    
+CMD ["sleep","1000"]
