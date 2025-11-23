@@ -5,4 +5,5 @@ COPY *.js .
 RUN npm install
 ENV MONGO="TRUE" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
-CMD ["node", "server.js"] # to start the container
+ # to start the container    
+CMD ["node", "server.js"]
