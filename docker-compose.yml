@@ -2,7 +2,7 @@ services:
   catalogue:
     image: catalogue:v1
     container_name: catalogue
-    dependson:
+    depends_on:
     - mongodb
     expose: 
     - 8080  
