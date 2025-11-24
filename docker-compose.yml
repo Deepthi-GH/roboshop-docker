@@ -1,4 +1,11 @@
 services:
+  catalogue:
+    image: catalogue:v1
+    container_name: catalogue
+    dependson:
+    - mongodb
+    expose: 
+    - 8080  
   mongodb:
     image: mongodb:v1
     container_name: mongodb
