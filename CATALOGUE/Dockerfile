@@ -12,6 +12,10 @@ RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server 
 # it copies the files with roboshop user
 COPY --from=build /opt/server /opt/server
+EXPOSE 8080
+LABEL com.project="roboshop" \
+      component="catalogue" \
+      created_by="deepthi"
 ENV MONGO="TRUE" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
  # to start the container   
