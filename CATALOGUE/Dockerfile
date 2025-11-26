@@ -17,7 +17,8 @@ ENV MONGO="TRUE" \
  # to start the container   
 RUN chown -R roboshop:roboshop /opt/server 
 USER roboshop
-CMD ["node", "server.js"]
+CMD [ "server.js"]
+ENTRYPOINT["node"]
 
 # FROM node:20
 #  # it creates this directory and automatically moves to that path. no need to do cd.
