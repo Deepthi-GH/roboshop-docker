@@ -18,7 +18,7 @@ ENV MONGO="TRUE" \
 RUN chown -R roboshop:roboshop /opt/server 
 USER roboshop
 CMD [ "server.js"]
-ENTRYPOINT["node"]
+ENTRYPOINT ["node"]
 
 # FROM node:20
 #  # it creates this directory and automatically moves to that path. no need to do cd.
