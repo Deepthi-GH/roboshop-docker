@@ -7,10 +7,10 @@ RUN npm install
 
 # this is the final image. after copying it deletes above image
 FROM node:20.19.5-alpine3.21
-# Create a group and user
-RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server 
-RUN chown -R roboshop:roboshop /opt/server
+# Create a group and user
+RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
+    chown -R roboshop:roboshop /opt/server
 EXPOSE 8080
 LABEL com.project="roboshop" \
       component="catalogue" \
