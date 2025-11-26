@@ -1,14 +1,14 @@
 services:
   catalogue:
     build:
-      context: ./catalogue
+      context: ./CATALOGUE
       dockerfile: Dockerfile
     image: kattika/catalogue:v1
     container_name: catalogue
     depends_on:
     - mongodb
   mongodb:
-    build: ./mongodb
+    build: ./MONGODB
     image: kattika/mongodb:v1
     container_name: mongodb
     volumes:
@@ -19,7 +19,7 @@ services:
     volumes:
     - redis:/data
   mysql:
-    build: ./mysql
+    build: ./MYSQL
     image: kattika/mysql:v1
     container_name: mysql
     volumes:
@@ -33,28 +33,28 @@ services:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
   user:
-    build: ./user 
+    build: ./USER 
     image: kattika/user:v1
     container_name: user
     depends_on:
     - mongodb
     - redis
   cart:
-    build: ./cart
+    build: ./CART
     image: kattika/cart:v1
     container_name: cart
     depends_on: 
      - redis
      - catalogue
   shipping:
-    build: ./shipping
+    build: ./SHIPPING
     image: kattika/shipping:v1
     container_name: shipping
     depends_on:
     - mysql
     - cart
   payment:
-    build: ./payment
+    build: ./PAYMENT
     image: kattika/payment:v1
     container_name: payment
     depends_on:
@@ -62,7 +62,7 @@ services:
     - cart
     - user
   frontend:
-    build: ./frontend
+    build: ./FRONTEND
     image: kattika/frontend:v1
     container_name: frontend
     ports:
