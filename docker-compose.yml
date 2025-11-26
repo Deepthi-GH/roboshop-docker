@@ -1,6 +1,6 @@
 services:
   catalogue:
-    buiild:
+    build:
       context: ./catalogue
       dockerfile: Dockerfile
     image: kattika/catalogue:v1
