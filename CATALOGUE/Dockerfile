@@ -10,16 +10,16 @@ FROM node:20.19.5-alpine3.21
 # Create a group and user
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server 
-# it copies the files with roboshop user
-COPY --from=build /opt/server /opt/server
+RUN chown -R roboshop:roboshop /opt/server
 EXPOSE 8080
 LABEL com.project="roboshop" \
       component="catalogue" \
       created_by="deepthi"
 ENV MONGO="TRUE" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
- # to start the container   
-RUN chown -R roboshop:roboshop /opt/server 
+# to start the container   
+# it copies the files with roboshop user
+COPY --from=build /opt/server /opt/server
 USER roboshop
 CMD [ "server.js"]
 ENTRYPOINT ["node"]
