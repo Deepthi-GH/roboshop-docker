@@ -14,7 +14,7 @@ ENV CART_ENDPOINT="CART:8080" \
     DB_HOST="mysql"
 COPY --from=builder --chown=roboshop:roboshop /opt/server/shipping.jar
 USER roboshop
-CMD ["java","-jar","shipping.jar"]   
+ENTRYPOINT ["java","-jar","shipping.jar"]   
 
 # FROM maven:3.9.11
 # EXPOSE 8080
