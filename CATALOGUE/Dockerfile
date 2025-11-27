@@ -19,7 +19,7 @@ ENV MONGO="TRUE" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
 # to start the container   
 # it copies the files with roboshop user
-COPY --from=build -chown=roboshop:roboshop /opt/server /opt/server
+COPY --from=build --chown=roboshop:roboshop /opt/server /opt/server
 USER roboshop
 CMD [ "server.js"]
 ENTRYPOINT ["node"]

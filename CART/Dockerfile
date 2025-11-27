@@ -20,7 +20,7 @@ ENV   REDIS_HOST="redis" \
       CATALOGUE_PORT="8080"
 # to start the container   
 # it copies the files with roboshop user
-COPY --from=build -chown=roboshop:roboshop /opt/server /opt/server
+COPY --from=build --chown=roboshop:roboshop /opt/server /opt/server
 USER roboshop
 CMD [ "server.js"]
 ENTRYPOINT ["node"] 
