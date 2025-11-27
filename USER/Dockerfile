@@ -16,7 +16,7 @@ LABEL com.project="roboshop" \
       component="user" \
       created_by="deepthi"
 ENV MONGO="TRUE" \
-    REDIS_URL='redis://redis:6379' \
+    REDIS_URL="redis://redis:6379" \
     MONGO_URL="mongodb://mongodb:27017/users"
 # to start the container   
 # it copies the files with roboshop user
