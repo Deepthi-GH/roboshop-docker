@@ -10,11 +10,11 @@ FROM eclipse-temurin:17-jre-alpine
 EXPOSE 8080
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server
-ENV CART_ENDPOINT="CART:8080" \
+ENV CART_ENDPOINT="cart:8080" \
     DB_HOST="mysql"
 COPY --from=builder --chown=roboshop:roboshop /opt/server/shipping.jar .
 USER roboshop
-ENTRYPOINT ["java","-jar","shipping.jar"]   
+ENTRYPOINT ["sh", "-c", "sleep 30 && java -jar shipping.jar"]
 
 # FROM maven:3.9.11
 # EXPOSE 8080
